@@ -1,0 +1,10 @@
+package com.pranay.cruddemo.repository;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.pranay.cruddemo.entity.Student;
+
+@Repository
+public interface StudentRepository extends CrudRepository<Student,Integer>{
+}

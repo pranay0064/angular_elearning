@@ -1,0 +1,35 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+      </div>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <!--<a href="#x"> Profile</a>-->
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+<div class="container">
+        <h4>Current Message</h4>
+        <form>
+          <input type="text" disabled style="height: 90px; width:680px;" #message [(ngModel)]="profdetails.message" name="message" id="message"
+              class="form-control" placeholder="Enter Message here">  
+        </form>
+        <h4>Update Message</h4>
+        <form #prescriptionForm="ngForm" (ngSubmit)="saveMessage(prescriptionForm)">
+            <input type="text" style="height: 90px; width:680px;" #message (ngModel)="message" name="message" id="message"
+                class="form-control" placeholder="Enter Message here">
+            <input type="submit" value="Submit" class="btn btn-primary w-50">    
+        </form>
+        <h4>Current Resource</h4>
+        <form>
+          <input type="text" disabled style="height: 90px; width:680px;" #message [(ngModel)]="profdetails.material" name="message" id="message"
+              class="form-control" placeholder="Enter Message here">  
+        </form>
+        <h4>Update Resources</h4>
+        <form #resourcesForm="ngForm" (ngSubmit)="saveMaterial(resourcesForm)">
+            <input type="text" style="height: 90px; width:680px;" #material (ngModel)="material" name="material" id="material"
+                class="form-control" placeholder="Enter material here">
+            <input type="submit" value="Submit" class="btn btn-primary w-100">    
+        </form>
+</div>

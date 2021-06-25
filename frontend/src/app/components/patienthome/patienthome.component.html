@@ -1,0 +1,69 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    </div>
+    
+    <ul class="nav navbar-nav navbar-right">
+      <!--<a href="#x"> Profile</a>-->
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="mt-5">
+      <table class="table table-bordered">
+          <thead class="thead">
+              <tr>
+                <th>Professor Id</th>
+                  <th>Name</th>
+                  <th>EMail</th>
+                  <th>Subject</th>
+                  <th>University</th>
+                  <th>Material</th>
+                  <th>Professor's Message</th>
+                  <th>Reply Message</th>
+              </tr>
+          </thead>
+          <tbody class="tbody">
+              <tr *ngFor="let prof of profDetails">
+                    <td>{{prof.pid}}</td>
+                  <td>{{prof.pname}}</td>
+                  <td><a href="mailto: {{prof.email}}">{{prof.email}}</a></td>
+                  <td>{{prof.subject}}</td>
+                  <td>{{prof.university}}</td>
+                  <td><a href="{{prof.material}}" download>{{prof.material}}</a></td>
+                  <td>{{prof.message.split("/")[0]}}</td>
+                  <td><button (click)="Message(prof)" style="background-color: lightgreen;">Message</button></td>
+                  <!--<td><button (click)="Message(prof)" style="background-color: lightgreen;">Message</button></td>
+                  <td *ngIf="prof.availability;else elseBlock"><button (click)="fetchAll(prof)" style="background-color: lightgreen;">Book</button></td>
+                  <ng-template #elseBlock>
+                    <td><button (click)="na()" style="background-color: Red;">N/A</button></td>
+                  </ng-template>-->
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+
+<!--<p>{{msg}}</p>
+<div class="container">
+  <div *ngIf="pres!=null">
+    <h4>Provided Message</h4>
+    <p>{{pres}}</p>
+  </div>
+</div>-->
+
+<div class="container">
+  <div *ngIf="openForm">
+      <h4>Enter Reply</h4>
+      <form #prescriptionForm="ngForm" (ngSubmit)="saveMessage(prescriptionForm)">
+        <div class="form-group">
+          <input type="text" style="height: 90px; width:680px;" #message (ngModel)="profToUpdate.message" name="message" id="message"
+              class="form-control" placeholder="Enter Message here">
+          <input type="submit" value="Submit" class="btn btn-primary w-100">
+        </div>    
+      </form>
+  </div>
+</div>
+

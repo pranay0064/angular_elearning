@@ -1,0 +1,74 @@
+<!--<!DOCTYPE html>   
+<html>   
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<title> Login Page </title>  
+   
+</head>    
+<body>    
+    <h1 style="text-align: center;"> Patient Login Form </h1> 
+    <form #registerForm="ngForm" (ngSubmit)="login(registerForm)">
+            <div class="form-group">
+                <label for="name">User Email:</label>
+                <input type="text" #email (ngModel)="email" name="email" id="email" class="form-control"
+                    placeholder="User email">
+            </div>
+            <div class="form-group">
+                <label for="name">User Password:</label>
+                <input type="text" #password (ngModel)="password" name="password" id="password"
+                    class="form-control" placeholder="User password">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary w-100">
+            </div>
+        </form>    
+</body>     
+</html>  
+-->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+      </div>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <!--<a href="#x"> Profile</a>-->
+        <li><a href="/signup"><span class="glyphicon glyphicon-sign-up"></span>Student Sign Up</a></li>
+        <li><a href="/doctorlogin"><span class="glyphicon glyphicon-log-in"></span> Professor Login</a></li>
+      </ul>
+    </div>
+</nav>
+<div class="container">
+    <h1 style="text-align: center;"> Student Login Form </h1>
+    <div class="card mt-5" style="padding: 20px;">
+        <form #registerForm="ngForm" (ngSubmit)="login(registerForm)">
+            <div class="form-group">
+                <label for="name">User Email:</label>
+                <input type="text" #email (ngModel)="email" name="email" id="email" class="form-control"
+                    placeholder="User email">
+            </div>
+            <div class="form-group">
+                <label for="name">User Password:</label>
+                <input type="password" #password (ngModel)="password" name="password" id="password"
+                    class="form-control" placeholder="User password">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary w-100">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<button class="open-button" (click)="openForm()">Admin Form</button>
+
+  <div class="form-popup" id="myForm">
+    <form #user="ngForm" (ngSubmit)="onSubmit(user.value)" class="form-container">
+        <h1>Login</h1>
+        <label for="email"><b>Email</b></label>
+        <input type="text" name="email" placeholder="Email" ngModel required>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" name="passwd" placeholder="Password" ngModel required>
+        <input type="submit" class="btn" value="Submit">
+        <button type="button" class="btn cancel" (click)="closeForm()">Close</button>
+      </form>
+  </div>

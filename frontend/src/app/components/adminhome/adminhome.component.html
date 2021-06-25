@@ -1,0 +1,119 @@
+<div class="container">
+    <div class="card mt-5" style="align-items: center;">
+      <h1>Professors Dashboard</h1>
+    </div>
+    <div class="card mt-5" style="padding: 20px;">
+      <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+        
+        <div class="form-group">
+          <label for="pname">Professor Name:</label>
+          <input type="text" #pname (ngModel)="pname" name="pname" id="pname" class="form-control"
+                              placeholder="Professor Name">
+        </div>
+        <div class="form-group">
+          <label for="email">Professor Email:</label>
+          <input type="text" #email (ngModel)="email" name="email" id="email" class="form-control"
+                              placeholder="Professor email">
+        </div>
+        <div class="form-group">
+            <label for="password">Professor Password:</label>
+            <input type="password" #password (ngModel)="password" name="password" id="password"
+                                class="form-control" placeholder="Professor password">
+          </div>
+        <div class="form-group">
+          <label for="subject">Professor Subject:</label>
+          <input type="text" #subject (ngModel)="subject" name="subject" id="subject"
+                              class="form-control" placeholder="Professor subject">
+        </div>
+        <div class="form-group">
+          <label for="university">Professor university:</label>
+          <input type="text" #university (ngModel)="university" name="university" id="university" class="form-control"
+                              placeholder="Professor university">
+        </div>
+        <div class="form-group">
+          <label for="material">Professor Material:</label>
+          <input type="text" #material (ngModel)="material" name="material" id="material" class="form-control"
+                              placeholder="Professor material">
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Register" class="btn btn-primary w-100">
+        </div>
+      </form>
+    </div>
+    <div class="mt-5">
+      <table class="table table-bordered">
+        <thead class="thead">
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>EMail</th>
+            <th>Subject</th>
+            <th>University</th>
+            <th>Material</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody class="tbody">
+          <tr *ngFor="let prof of profDetails">
+            <td>{{prof.pid}}</td>
+            <td>{{prof.pname}}</td>
+            <td>{{prof.email}}</td>
+            
+            <td>{{prof.subject}}</td>
+            <td>{{prof.university}}</td>
+            <td>{{prof.material}}</td>
+            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal" (click)="edit(prof)">
+                                      Edit
+                                  </button></td>
+            <td><button type="button" class="btn btn-danger"
+                                      (click)="deleteProfessor(prof)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>Update Form</h3>
+    <div class="card mt-5" style="padding: 20px;">
+      <form #updateForm="ngForm" (ngSubmit)="updateProfessorDetails(updateForm)">
+        <div class="form-group">
+          <label for="name">Professor Id:</label>
+          <input type="text" disabled #pid [(ngModel)]="profToUpdate.pid" name="pid" id="pid"
+                              class="form-control" placeholder="Professor Id">
+        </div>
+        <div class="form-group">
+          <label for="dname">Professor Name:</label>
+          <input type="text" #pname [(ngModel)]="profToUpdate.pname" name="pname" id="pname"
+                              class="form-control" placeholder="Professor Name">
+        </div>
+        <div class="form-group">
+          <label for="name">Professor Email:</label>
+          <input type="text" #email [(ngModel)]="profToUpdate.email" name="email" id="email"
+                              class="form-control" placeholder="Professor email">
+        </div>
+        <div class="form-group">
+            <label for="password">Professor Password:</label>
+            <input type="password" #password [(ngModel)]="profToUpdate.password" name="password" id="password"
+                                class="form-control" placeholder="Professor password">
+          </div>
+        <div class="form-group">
+          <label for="name">Professor Subject:</label>
+          <input type="text" #subject [(ngModel)]="profToUpdate.subject" name="subject"
+                              id="subject" class="form-control" placeholder="Professor's subject">
+        </div>
+        <div class="form-group">
+          <label for="name">Professor University:</label>
+          <input type="text" #university [(ngModel)]="profToUpdate.university" name="university"
+                              id="university" class="form-control" placeholder="Professor University">
+        </div>
+        <div class="form-group">
+          <label for="name">Professor material:</label>
+          <input type="text" #material [(ngModel)]="profToUpdate.material" name="material" id="material"
+                              class="form-control" placeholder="Professor material">
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Update" class="btn btn-primary w-100">
+        </div>
+      </form>
+    </div>
+  </div>
